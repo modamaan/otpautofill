@@ -18,7 +18,7 @@ export const autofillOtp = (
   onError: () => void
 ) => {
   if (navigator.credentials && "OTPCredential" in window) {
-    toast.success("OTPCredential API is available."); // Testing toast
+    toast.success("OTPCredential API is available.");
     navigator.credentials
       .get({ otp: { transport: ["sms"] } } as CredentialRequestOptions)
       .then((otpCredential) => {
@@ -70,7 +70,12 @@ function App() {
   return (
     <div className="space-y-2">
       {isOtpCorrect ? ( // Show congrats message if OTP is correct
-        <p className="text-lg text-green-500 text-center">Congrats!</p>
+        <>
+          {toast.success("Congrats")}
+          <div>
+            <p className="text-lg text-green-500 text-center">Congrats!</p>
+          </div>
+        </>
       ) : (
         <>
           <Label htmlFor="otp" className="mb-4">
