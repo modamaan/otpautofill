@@ -51,16 +51,24 @@ function App() {
   const REGEXP_ONLY_DIGITS = /^[0-9]*$/;
   const CORRECT_OTP = "45612";
 
-  useEffect(() => {
-    autofillOtp(setOtp, setStatusMessage);
-  }, []);
-
   const handleOtpChange = (value: string) => {
     setOtp(value);
     if (value === CORRECT_OTP) {
       setIsOtpCorrect(true);
+    } else {
+      setIsOtpCorrect(false); // Reset if OTP is incorrect
     }
   };
+
+  useEffect(() => {
+    autofillOtp(
+      (fetchedOtp) => {
+        setOtp(fetchedOtp); // Automatically set OTP
+        handleOtpChange(fetchedOtp); // Validate OTP
+      },
+      setStatusMessage
+    );
+  }, []);
 
   return (
     <div className="space-y-2">
