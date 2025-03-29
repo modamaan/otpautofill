@@ -21,8 +21,8 @@ export const autofillOtp = (
     navigator.credentials
       .get({ otp: { transport: ["sms"] } } as CredentialRequestOptions)
       .then((otpCredential) => {
-        if (!otpCredential) {
-          onError("No OTP received.");
+        if (otpCredential) {
+          onError(" OTP received.");
           return;
         }
 
