@@ -73,7 +73,7 @@ function App() {
         <>
           {toast.success("Congrats")}
           <div>
-            <p className="text-lg text-blue-600-500 text-center">Congrats!</p>
+            <p className="text-lg text-blue-600 text-center">Congrats!</p>
           </div>
         </>
       ) : (
