@@ -71,7 +71,6 @@ function App() {
     <div className="space-y-2">
       {isOtpCorrect ? ( // Show congrats message if OTP is correct
         <>
-          {toast.success("Congrats")}
           <div>
             <p className="text-lg text-blue-600 text-center">Congrats!</p>
           </div>
